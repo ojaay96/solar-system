@@ -173,14 +173,14 @@ jobs:
           with:
             version: 'v1.26.0'
 
-        - name: Set Kubeconfig file
-          continue-on-error: true        
+        - name: Set Kubeconfig file       
           uses: azure/k8s-set-context@v4
           with:
             method: kubeconfig
             kubeconfig: ${{ secrets.KUBECONFIG }}
 
         - name: Fetch Kubernetes Cluster Details
+          continue-on-error: true 
           run: |
              kubectl version --short 
              echo --------------------------
