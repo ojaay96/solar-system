@@ -218,5 +218,6 @@ jobs:
              -o yaml | kubectl apply -f -
 
         - name: Deploy to Dev Env
+          continue-on-error: true 
           run: |
              kubectl apply -f kubernetes/development
