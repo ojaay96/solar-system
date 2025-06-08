@@ -180,6 +180,7 @@ jobs:
             kubeconfig: ${{ secrets.KUBECONFIG }}
 
         - name: Fetch Kubernetes Cluster Details
+          continue-on-error: true
           run: |
              kubectl version --short 
              echo --------------------------
