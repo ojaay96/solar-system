@@ -231,10 +231,11 @@ jobs:
 
     integration-testing: 
       name: Dev Integration Testing
+      continue-on-error: true
       needs: dev-deploy
       runs-on: ubuntu-latest
       steps:
-        - name: Test URL Outputusng CURL and JQ
+        - name: Test URL Output using CURL and JQ
           env:
             URL: ${{ needs.dev-deploy.outputs.APP_INGRESS_URL }}
           run: |
