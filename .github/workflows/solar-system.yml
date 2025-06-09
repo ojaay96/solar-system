@@ -59,7 +59,7 @@ jobs:
             if: always()
             uses: actions/upload-artifact@v4
             with:
-              name: Mocha-Test-Result
+              name: Mocha-Test-Result-${{ matrix.os }}-node-${{ matrix.nodejs_version }}
               path: test-results.xml
 
     code-coverage:
@@ -116,7 +116,7 @@ jobs:
         - name: Download Mocha Test Artifact
           uses: actions/download-artifact@v4
           with:
-            name: Mocha-Test-Result
+            name: Mocha-Test-Result-${{ matrix.os }}-node-${{ matrix.nodejs_version }}
 
         - name: Download Code Coverage Artifact
           uses: actions/download-artifact@v4
