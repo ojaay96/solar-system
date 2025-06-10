@@ -135,7 +135,8 @@ jobs:
              ls -ltr
              mkdir reports-${{ github.sha }}
              mv cobertura-coverage.xml reports-${{ github.sha }}/
-             mv test-results.xml reports-${{ github.sha }}/
+             mv artifacts/node-18/test-results.xml reports-${{ github.sha }}/test-results-node-18.xml
+             mv artifacts/node-20/test-results.xml reports-${{ github.sha }}/test-results-node-20.xml
              ls -ltr reports-${{ github.sha }}/
 
         - name: Upload to AWS S3
