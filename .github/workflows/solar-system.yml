@@ -260,3 +260,22 @@ jobs:
              echo "---------------"
              curl hhtps://$URL/live -s -k | jq -r .status | grep -i live
              
+             name: Slack Notification Demo
+
+    # slack-notification:
+    #   if: always()
+    #   name: Slack Notification
+    #   needs: [dev-integration-testing, prod-integration-testing]
+    #   continue-on-error: true
+    #   runs-on: ubuntu-latest
+    #   steps:
+    #   - uses: actions/checkout@v4
+    #   - name: Slack Notification
+    #     uses: rtCamp/action-slack-notify@v2
+    #     env:
+    #       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+    #       SLACK_CHANNEL: github-action-channel
+    #       SLACLK_COLOR: ${{ job.status }}
+    #       SLACK_ICON: https://gitlab.com/sidd-harth/solar-system/raw/main/images/saturn.png
+    #       SLACK_MESSAGE: 'hammer_and_wrench' Triggered by ${{ github.actor }}
+    #       SLACK_TITLE: Information
