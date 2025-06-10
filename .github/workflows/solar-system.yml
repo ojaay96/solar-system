@@ -113,10 +113,17 @@ jobs:
       runs-on: ubuntu-latest
       continue-on-error: true
       steps:
-        - name: Download Mocha Test Artifact
+        - name: Download Mocha Test Artifact for Node 18
           uses: actions/download-artifact@v4
           with:
-            name: Mocha-Test-Result-${{ matrix.os }}-node-${{ matrix.nodejs_version }}
+            name: Mocha-Test-Result-ubuntu-latest-node-18
+            path: ./artifacts/node-18
+
+        - name: Download Mocha Test Artifact for Node 20
+          uses: actions/download-artifact@v4
+          with:
+            name: Mocha-Test-Result-ubuntu-latest-node-20
+            path: ./artifacts/node-20
 
         - name: Download Code Coverage Artifact
           uses: actions/download-artifact@v4
